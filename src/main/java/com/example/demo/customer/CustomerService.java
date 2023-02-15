@@ -1,5 +1,7 @@
 package com.example.demo.customer;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -13,12 +15,16 @@ public class CustomerService {
 
     private final CustomerRepo customerRepo;
 
+    // @Qualifier are used to specify the class to you want to be used if you have two classes
+    // that are using same implementation
+    // for example if we put in the parameter @Qualifier("fake")
+    // it will use CustomerFakeRepository class
     public CustomerService(CustomerRepo customerRepo) {
         this.customerRepo = customerRepo;
     }
 
     List<Customer> getCustomer() {
-        return customerRepo.getCustomer();
+        return customerRepo.getCustomers();
     }
 
 }
