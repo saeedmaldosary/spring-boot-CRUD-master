@@ -3,6 +3,7 @@ package com.example.demo.customer;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
@@ -10,7 +11,8 @@ import java.util.List;
 // @Component will let this class bean, @Component create a bean that we can inject in many places
 // So if we inject this class in many class we will get same
 // instance
-@Component
+// @Service == @Component
+@Service
 public class CustomerService {
 
     private final CustomerRepo customerRepo;

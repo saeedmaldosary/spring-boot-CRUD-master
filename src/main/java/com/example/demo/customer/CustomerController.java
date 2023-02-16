@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-//This annotation is used at the class level and allows the class to handle the requests made by the client.
+// This annotation is used at the class level and allows the class to handle the requests made by the client.
+// This annotation allows us to send http requests using like @GetMapping etc...
 @RestController
 public class CustomerController {
 
