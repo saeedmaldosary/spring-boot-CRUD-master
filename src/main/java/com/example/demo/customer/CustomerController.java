@@ -1,6 +1,5 @@
 package com.example.demo.customer;
 
-import com.example.demo.DemoApplication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class CustomerController {
     // We don't have to write value = because it's the default
     @GetMapping(value="all")
     List<Customer> getCustomer() {
-        return customerService.getCustomer();
+        return customerService.getCustomers();
     }
 
 
