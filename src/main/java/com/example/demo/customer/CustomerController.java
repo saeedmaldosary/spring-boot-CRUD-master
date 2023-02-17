@@ -29,13 +29,13 @@ public class CustomerController {
         System.out.println(customer);
     }
 
-    @PutMapping
+    @PutMapping("/editCustomer")
     void updateCustomer(@RequestBody Customer customer) {
         System.out.println("UPDATE REQUEST...");
         System.out.println(customer);
     }
 
-    @DeleteMapping(path = "{customerId}")
+    @DeleteMapping(path = "/deleteCustomer/{customerId}")
     void deleteCustomer(@PathVariable("customerId") Long id) {
         System.out.println("DELETE REQUEST FOR CUSTOMER WITH ID "+id);
     }
