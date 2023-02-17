@@ -1,29 +1,28 @@
 package com.example.demo.customer;
 
-import com.example.demo.DemoApplication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 
-@RequestMapping(path = "api/v1/customer")
+@RequestMapping(path = "api/v2/customer")
 // This annotation is used at the class level and allows the class to handle the requests made by the client.
 // This annotation allows us to send http requests using like @GetMapping etc...
 @RestController
-// We use @Deprecated to let this class Deprecated and use the other version
-@Deprecated
-public class CustomerController {
+public class CustomerControllerV2 {
 
     private final CustomerService customerService;
 
-    public CustomerController(CustomerService customerService) {
+    public CustomerControllerV2(CustomerService customerService) {
         this.customerService = customerService;
     }
 
     // We don't have to write value = because it's the default
     @GetMapping(value="all")
     List<Customer> getCustomer() {
-        return customerService.getCustomer();
+        return Collections.singletonList(new Customer(0L,"V2","V2"));
     }
 
 
