@@ -10,6 +10,10 @@ public class Customer {
         this.name = name;
     }
 
+    // Below getters methods are using Jackson which JSON processor used for Java
+    // If we change getId to getCustomerId it will return for us [{customerId: ........
+    // instated of [{id: ......
+
     public Long getId() {
         return id;
     }
