@@ -8,18 +8,18 @@ import jakarta.validation.constraints.NotBlank;
 public class Customer {
 
     private final Long id;
-    @NotBlank
+    @NotBlank(message = "name must not be empty")
     private final String name;
 
     // The difference between @NotBlank and @NotNull is that
     // @NotNull means that the Property must not be null but can be empty
-    @NotBlank
+    @NotBlank(message = "password must not be empty")
     // Below @JsonProperty allows us to send password in API request
     // if we did not use it @JsonIgnore will cause an issue for us
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private final String password;
 
-    @NotBlank
+    @NotBlank(message = "email must not be empty")
     // @Email will make sure the user has sent email in the request
     // we can add our regular expression in the parameter of @Email
     @Email
