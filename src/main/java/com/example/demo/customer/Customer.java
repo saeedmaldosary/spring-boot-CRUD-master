@@ -2,8 +2,8 @@ package com.example.demo.customer;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 public class Customer {
 
@@ -19,12 +19,19 @@ public class Customer {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private final String password;
 
+    @NotBlank
+    // @Email will make sure the user has sent email in the request
+    // we can add our regular expression in the parameter of @Email
+    @Email
+    private final String email;
 
 
-    public Customer(Long id, String name, String password) {
+
+    public Customer(Long id, String name, String password, String email) {
         this.id = id;
         this.name = name;
         this.password = password;
+        this.email = email;
     }
 
     // Below getters methods are using Jackson which JSON processor used for Java
@@ -48,12 +55,17 @@ public class Customer {
         return password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

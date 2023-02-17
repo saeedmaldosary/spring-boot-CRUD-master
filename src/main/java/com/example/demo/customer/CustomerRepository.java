@@ -21,7 +21,7 @@ public class CustomerRepository implements CustomerRepo {
         // When we try to add/remove an element on the returned singleton list,
         // it would give UnsupportedOperationException.
         return Collections.singletonList(
-                new Customer(1L, "TODO. Implement real db", "todoPass")
+                new Customer(1L, "TODO. Implement real db", "todoPass", "email@gmail.com")
 
         );
     }
