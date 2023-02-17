@@ -7,7 +7,11 @@ public class Customer {
 
     private final Long id;
     private final String name;
+    // Below @JsonProperty allows us to send password in API request
+    // if we did not use it @JsonIgnore will cause an issue for us
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private final String password;
+
 
 
     public Customer(Long id, String name, String password) {
