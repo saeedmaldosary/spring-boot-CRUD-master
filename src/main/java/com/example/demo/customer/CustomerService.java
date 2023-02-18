@@ -1,5 +1,6 @@
 package com.example.demo.customer;
 
+import com.example.demo.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -29,7 +30,7 @@ public class CustomerService {
     Customer getCustomer(Long id) {
         return getCustomers().stream().filter(customer -> customer.getId() == id).
                 findFirst().orElseThrow(
-                        () -> new IllegalStateException("Customer with id " + id + " not found"));
+                        () -> new NotFoundException("Customer with id " + id + " not found"));
     }
 
 }
