@@ -13,23 +13,22 @@ import java.util.List;
 @Service
 public class CustomerService {
 
-    private final CustomerRepo customerRepo;
+    private final CustomerRepository customerRepository;
 
     // @Qualifier are used to specify the class to you want to be used if you have two classes
     // that are using same implementation
     // for example if we put in the parameter @Qualifier("fake")
     // it will use CustomerFakeRepository class
-    public CustomerService(CustomerRepo customerRepo) {
-        this.customerRepo = customerRepo;
+    public CustomerService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
     }
 
     List<Customer> getCustomers() {
-        return customerRepo.getCustomers();
+        return customerRepository.findAll();
     }
 
     Customer getCustomer(Long id) {
-        return getCustomers().stream().filter(customer -> customer.getId() == id).
-                findFirst().orElseThrow(
+        return customerRepository.findById(id).orElseThrow(
                         () -> new NotFoundException("Customer with id " + id + " not found"));
     }
 

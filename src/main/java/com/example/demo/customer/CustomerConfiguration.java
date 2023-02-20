@@ -14,7 +14,7 @@ public class CustomerConfiguration {
     private Boolean useFakeCustomerRepo;
 
     @Bean
-    // We use this class when we want to do some setup when the application start
+        // We use this class when we want to do some setup when the application start
     CommandLineRunner commandLineRunner() {
         return args -> {
             System.out.println("Command line runner");
@@ -26,7 +26,7 @@ public class CustomerConfiguration {
     @Bean
     CustomerRepo customerRepo() {
         System.out.println("useFakeCustomerRepo = " + useFakeCustomerRepo);
-        return useFakeCustomerRepo ? new CustomerFakeRepository() : new CustomerRepository();
+        return new CustomerFakeRepository();
     }
 
 }
