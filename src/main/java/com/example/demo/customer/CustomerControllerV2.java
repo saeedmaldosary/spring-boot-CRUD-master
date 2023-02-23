@@ -2,6 +2,7 @@ package com.example.demo.customer;
 
 import com.example.demo.exception.ApiRequestException;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -12,13 +13,11 @@ import java.util.List;
 // This annotation is used at the class level and allows the class to handle the requests made by the client.
 // This annotation allows us to send http requests using like @GetMapping etc...
 @RestController
+@AllArgsConstructor
 public class CustomerControllerV2 {
 
     private final CustomerService customerService;
 
-    public CustomerControllerV2(CustomerService customerService) {
-        this.customerService = customerService;
-    }
 
     // We don't have to write value = because it's the default
     @GetMapping
