@@ -6,13 +6,8 @@ import org.springframework.http.HttpStatus;
 import java.time.ZonedDateTime;
 
 // Below annotation Create getters and setters etc...
-@Data
 // The client will receive the Exception from this class
-public class ApiException {
+public record ApiException(String message,Throwable throwable,HttpStatus httpStatus,ZonedDateTime zonedDateTime) {
 
-    private final String message;
-    private final Throwable throwable;
-    private final HttpStatus httpStatus;
-    private final ZonedDateTime zonedDateTime;
 
 }
